@@ -79,7 +79,7 @@ Rails.application.configure do
 
   # required for Heroku
   # Note to set this to your actual host 
-  config.action_mailer.default_url_options = { :host => 'www.trimaxplanner.com' }
+  config.action_mailer.default_url_options = { :host => 'trimaxplanner.com' }
 
   # Sets paperclip to upload images to Amazon S3
   config.paperclip_defaults = {
