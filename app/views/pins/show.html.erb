@@ -1,7 +1,14 @@
 <%= link_to 'Back', pins_path %>
 
 <div class = "row">
-	<div class = "col-md-offset-2 col-md-8">
+	<div class="col-md-6">
+	  <div class="mappanel panel panel-default">
+	    <div class='panel-heading'><strong>Map</strong></div>
+	    <div class="panel-body"><div id="map-canvas"></div></div>    
+	  </div>
+	</div>
+
+	<div class="col-md-6">
 		<div class="panel panel-default">
 			<div class="panel-heading center">
 				<%= image_tag @pin.image.url(:medium) %>
@@ -16,5 +23,6 @@
 				<% end %>
 			</div>
 		</div>
- </div>
+ 	</div>
 </div>
+
