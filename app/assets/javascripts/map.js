@@ -1,8 +1,6 @@
-var geocoder
-var map
 
-(function(){
-  window.onload = function(){
+var map
+function  initialize(){
     var mapDiv = document.getElementById('map-canvas');
     var latlng = new google.maps.LatLng(39.97, -75.15);
     var mapOptions = {
@@ -23,4 +21,3 @@ var map
     };
     map = new google.maps.Map(mapDiv, mapOptions); 
   }
-})();
