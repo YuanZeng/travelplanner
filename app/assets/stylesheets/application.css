@@ -15,17 +15,3 @@
  *= require 'masonry/transitions'
  */
 
-#map-canvas {
-	width:91%;
-    height:550px;
-    position:absolute;
-    left:17px;
-    top:45px;
-    bottom:0;
-    overflow:hidden;
-}
-
-.mappanel{
-	height: 600px;
-	width:100%;
-}
