@@ -1,13 +1,13 @@
-#map-canvas {
-		width:100%;
-    height:530px;
-    position:relative;
-    overflow:hidden;
-}
-
 .col-md-4 > .mappanel{
 	height:600px;
 	width:100%;
 	top:5px;
 	position:relative;
+}
+
+.col-md-4 > .mappanel #map-canvas {
+		width:100%;
+    height:530px;
+    position:relative;
+    overflow:hidden;
 }
