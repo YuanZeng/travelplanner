@@ -1,16 +1,14 @@
 <%= render 'pages/home' unless user_signed_in? %>
-<div id="wrapper">
-  <!-- Sidebar -->
-  <div id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-          <li class="sidebar-brand">Map</li>
-          <li class="sidebar-content">
-            <div id="map-canvas"></div>
-          </li>
-      </ul>
+
+<div class = "row">
+  <div class="col-md-4">
+    <div class="mappanel panel panel-default">
+      <div class='panel-heading'><strong>Map</strong></div>
+      <div class="panel-body"><div id="map-canvas"></div></div>    
+    </div>
   </div>
 
-  <div id="page-content-wrapper">
+  <div class="col-md-8">
     <div id="pins" class="transitions-enabled">
       <% @pins.each do |pin| %>
         <div class="box panel panel-default">
@@ -34,9 +32,9 @@
         </div>
       <% end %>
     </div>
-    <div class="center">
-      <%= will_paginate @pins , renderer: BootstrapPagination::Rails %>
-    </div>
   </div>
 </div>
 
+<div class="center">
+  <%= will_paginate @pins , renderer: BootstrapPagination::Rails %>
+</div>
