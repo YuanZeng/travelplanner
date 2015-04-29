@@ -17,3 +17,20 @@
 //= require turbolinks
 //= require masonry/jquery.masonry
 //= require_tree .
+
+$(window).scroll(function() {
+    t = $('.container').offset();
+    t = t.top;
+    
+    s = $(window).scrollTop();
+    
+    d = t-s;
+    
+    if (d < 0) {
+        $('.mappanel').addClass('scrolling');
+        $('.pins').addClass('paddingTop');
+    } else {
+        $('.mappanel').removeClass('scrolling');
+        $('.pins').removeClass('paddingTop');
+    }
+});
