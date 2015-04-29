@@ -19,6 +19,14 @@
 					<% if @pin.user %>
             <%= link_to image_tag @pin.user.avatar.url(:thumb)%>
           <% end %>
+
+          <% if @pin.latitude %>
+          	<script >
+          	 createMarker(<%= @pin.latitude %>, <%= @pin.longitude %>);
+          	</script>
+          	<!--<script >alert('<%= @pin.latitude %>')</script> -->
+          <% end %>
+
 					<% if @pin.user == current_user %>
 						<div class="actions">
 							<%= link_to edit_pin_path(@pin) do%>

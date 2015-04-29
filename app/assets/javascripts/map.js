@@ -1,10 +1,12 @@
-var map
 $(function() {
   initPage();
 });
 $(window).bind('page:change', function() {
   initPage();
 });
+
+var map ;
+var marker;
 
 function initPage() {
   var mapDiv = document.getElementById('map-canvas');
@@ -26,4 +28,14 @@ function initPage() {
 
   };
   map = new google.maps.Map(mapDiv, mapOptions); 
+}
+
+function createMarker(lat, lng){
+  pinposition = new google.maps.LatLng(lat, lng);
+  map.setCenter(pinposition);
+  marker = new google.maps.Marker({
+    position: pinposition,
+    animation: google.maps.Animation.DROP
+  });
+  marker.setMap(map);
 }
