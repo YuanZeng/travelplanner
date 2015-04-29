@@ -1,44 +1,42 @@
 <%= render 'pages/home' unless user_signed_in? %>
 
-<div class = "row">
-  <div class="col-md-4">
-    <div class="mappanel panel panel-default">
-      <div class='panel-heading'><strong>Map</strong></div>
-      <div class="panel-body"><div id="map-canvas"></div></div>    
-    </div>
-  </div>
 
-  <div class="col-md-8">
-    <div id="pins" class="transitions-enabled">
-      <% @pins.each do |pin| %>
-        <div class="box panel panel-default">
-          <%= link_to image_tag(pin.image.url(:medium)), pin %>
-          <!-- same as pin_path(pin) -->
-          <div class="panel-body">
-            <p><%= pin.description %><p>
-            <!--   <%= pin.user.try(:email) %>   -->
-            <!--
-            <p>
-              <strong><%= pin.user.name if pin.user %></strong>
-            </p>
-          -->
-            <%= image_tag pin.user.avatar.url(:thumb) if pin.user %>
-            <% if pin.user == current_user %>
-              <div class="actions">
-                <%= link_to edit_pin_path(pin) do%>
-                  <span class='glyphicon glyphicon-edit'></span>Edit
-                <% end %>
-                <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?'} do%>
-                  <span <span class='glyphicon glyphicon-trash'></span>Delete
-                <% end %>
-              </div>
-            <% end %>
-          </div>
+<div class="mappanel">
+  <div id="map-canvas"></div>   
+</div>
+
+
+<div class="pins">
+  <div id="pins" class="transitions-enabled">
+    <% @pins.each do |pin| %>
+      <div class="box panel panel-default">
+        <%= link_to image_tag(pin.image.url(:medium)), pin %>
+        <!-- same as pin_path(pin) -->
+        <div class="panel-body">
+          <p><%= pin.description %><p>
+          <!--   <%= pin.user.try(:email) %>   -->
+          
+          <% if pin.user %>
+            <%= link_to image_tag pin.user.avatar.url(:thumb)%>
+            <!--<p><strong><%= pin.user.name %></strong></p>-->
+          <% end %>
+          
+          <% if pin.user == current_user %>
+            <div class="actions">
+              <%= link_to edit_pin_path(pin) do%>
+                <span class='glyphicon glyphicon-edit'></span>Edit
+              <% end %>
+              <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?'} do%>
+                <span <span class='glyphicon glyphicon-trash'></span>Delete
+              <% end %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
 
 <div class="center">
   <%= will_paginate @pins , renderer: BootstrapPagination::Rails %>
