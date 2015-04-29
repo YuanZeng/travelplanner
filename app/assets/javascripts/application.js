@@ -34,3 +34,4 @@ $(window).scroll(function() {
         $('.pins').removeClass('paddingTop');
     }
 });
+
