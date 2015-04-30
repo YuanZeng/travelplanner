@@ -1,6 +1,3 @@
-<%= render 'pages/home' unless user_signed_in? %>
-
-
 <div class="mappanel">
   <div id="map-canvas"></div>   
 </div>
@@ -15,9 +12,8 @@
         <div class="panel-body">
           <p><%= pin.description %><p>
           <!--   <%= pin.user.try(:email) %>   -->
-          
           <% if pin.user %>
-            <%= link_to image_tag(pin.user.avatar.url(:thumb)), pin.user %>
+            <%= image_tag pin.user.avatar.url(:thumb)%>
             <!--<p><strong><%= pin.user.name %></strong></p>-->
           <% end %>
           
@@ -36,7 +32,6 @@
     <% end %>
   </div>
 </div>
-
 
 <div class="center">
   <%= will_paginate @pins , renderer: BootstrapPagination::Rails %>
