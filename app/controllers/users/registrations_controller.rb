@@ -3,9 +3,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_account_update_params, only: [:update]
 
 
-  def create
-    @user = User.create( user_params )
-  end
+  #def create
+  #  @user = User.create( user_params )
+  #end
 
   def edit
   end

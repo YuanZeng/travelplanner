@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428191458) do
+ActiveRecord::Schema.define(version: 20150501152800) do
 
   create_table "pins", force: :cascade do |t|
     t.string   "description"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150428191458) do
     t.decimal  "lat"
     t.float    "latitude"
     t.float    "longitude"
+    t.datetime "photo_created_at"
   end
 
   add_index "pins", ["user_id"], name: "index_pins_on_user_id"

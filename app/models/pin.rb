@@ -12,6 +12,7 @@ class Pin < ActiveRecord::Base
   return unless imgfile
   self.latitude  = imgfile.gps.latitude             
   self.longitude = imgfile.gps.longitude   
+  self.photo_created_at = imgfile.date_time
   rescue
     false 
   end       

@@ -22,9 +22,10 @@ function initpinPage() {
 }
 
 function createMarker(lat, lng){
-  map = initpinPage();
-  pinposition = new google.maps.LatLng(lat, lng);
+  var map = initpinPage();
+  var pinposition = new google.maps.LatLng(lat, lng);
   map.setCenter(pinposition);
+  map.setZoom(11);
   var marker = new google.maps.Marker({
     position: pinposition,
     animation: google.maps.Animation.DROP

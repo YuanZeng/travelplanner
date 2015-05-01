@@ -1,12 +1,17 @@
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-4">
     <div class="mappanelforuser">
-      <div id="map-canvas"></div>   
+      <div id="usermap-canvas"></div>   
     </div>
   </div>
-  <div class="col-md-9">
+
+  <div class="col-md-8">
     <div class="pins">
       <div id="pins" class="transitions-enabled">
+        <script >
+          var usermarkerarray = [];
+        </script>
+
         <% @pins.each do |pin| %>
           <div class="box panel panel-default">
             <%= link_to image_tag(pin.image.url(:medium)), pin %>
@@ -17,6 +22,13 @@
               <% if pin.user %>
                 <%= image_tag pin.user.avatar.url(:thumb)%>
                 <!--<p><strong><%= pin.user.name %></strong></p>-->
+              <% end %>
+
+              <% if pin.latitude %>
+                <script >
+                  var pincoor = new google.maps.LatLng(<%= pin.latitude %>, <%= pin.longitude %>)
+                  usermarkerarray.push(pincoor)
+                </script>
               <% end %>
               
               <% if pin.user == current_user %>
@@ -32,6 +44,15 @@
             </div>
           </div>
         <% end %>
+
+        <script>
+          if (usermarkerarray) {
+            createUserMarkers(usermarkerarray);
+            }
+          else {
+            initUserPage();
+          }
+        </script>
       </div>
     </div>
   </div>
