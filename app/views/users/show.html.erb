@@ -1,35 +1,39 @@
-<div class="mappanel">
-  <div id="map-canvas"></div>   
-</div>
-
-
-<div class="pins">
-  <div id="pins" class="transitions-enabled">
-    <% @pins.each do |pin| %>
-      <div class="box panel panel-default">
-        <%= link_to image_tag(pin.image.url(:medium)), pin %>
-        <!-- same as pin_path(pin) -->
-        <div class="panel-body">
-          <p><%= pin.description %><p>
-          <!--   <%= pin.user.try(:email) %>   -->
-          <% if pin.user %>
-            <%= image_tag pin.user.avatar.url(:thumb)%>
-            <!--<p><strong><%= pin.user.name %></strong></p>-->
-          <% end %>
-          
-          <% if pin.user == current_user %>
-            <div class="actions">
-              <%= link_to edit_pin_path(pin) do%>
-                <span class='glyphicon glyphicon-edit'></span>Edit
+<div class="row">
+  <div class="col-md-3">
+    <div class="mappanelforuser">
+      <div id="map-canvas"></div>   
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="pins">
+      <div id="pins" class="transitions-enabled">
+        <% @pins.each do |pin| %>
+          <div class="box panel panel-default">
+            <%= link_to image_tag(pin.image.url(:medium)), pin %>
+            <!-- same as pin_path(pin) -->
+            <div class="panel-body">
+              <p><%= pin.description %><p>
+              <!--   <%= pin.user.try(:email) %>   -->
+              <% if pin.user %>
+                <%= image_tag pin.user.avatar.url(:thumb)%>
+                <!--<p><strong><%= pin.user.name %></strong></p>-->
               <% end %>
-              <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?'} do%>
-                <span <span class='glyphicon glyphicon-trash'></span>Delete
+              
+              <% if pin.user == current_user %>
+                <div class="actions">
+                  <%= link_to edit_pin_path(pin) do%>
+                    <span class='glyphicon glyphicon-edit'></span>Edit
+                  <% end %>
+                  <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?'} do%>
+                    <span <span class='glyphicon glyphicon-trash'></span>Delete
+                  <% end %>
+                </div>
               <% end %>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
 

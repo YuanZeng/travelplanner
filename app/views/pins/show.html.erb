@@ -5,7 +5,7 @@
 		<div class="col-md-6">
 		  <div class="pinmappanel panel panel-default">
 		    <div class='panel-heading'><strong>Map</strong></div>
-		    <div class="panel-body"><div id="map-canvas"></div></div>    
+		    <div class="panel-body"><div id="pinmap-canvas"></div></div>    
 		  </div>
 		</div>
 
@@ -22,9 +22,10 @@
 
           <% if @pin.latitude %>
           	<script >
-          	 createMarker(<%= @pin.latitude %>, <%= @pin.longitude %>);
+          		createMarker(<%= @pin.latitude %>, <%= @pin.longitude %>);
           	</script>
-          	<!--<script >alert('<%= @pin.latitude %>')</script> -->
+          <% else %>
+          	<script>initpinPage()</script>
           <% end %>
 
 					<% if @pin.user == current_user %>

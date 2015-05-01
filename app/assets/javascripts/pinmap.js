@@ -1,13 +1,5 @@
-$(function() {
-  initindexPage();
-});
-$(window).bind('page:change', function() {
-  initindexPage();
-});
- 
-var marker;
-function initindexPage() {
-  var mapDiv = document.getElementById('map-canvas');
+function initpinPage() {
+  var mapDiv = document.getElementById('pinmap-canvas');
   var latlng = new google.maps.LatLng(39.97, -75.15);
   var mapOptions = {
     zoom: 2,
@@ -30,10 +22,10 @@ function initindexPage() {
 }
 
 function createMarker(lat, lng){
-  map = initPage();
+  map = initpinPage();
   pinposition = new google.maps.LatLng(lat, lng);
   map.setCenter(pinposition);
-  marker = new google.maps.Marker({
+  var marker = new google.maps.Marker({
     position: pinposition,
     animation: google.maps.Animation.DROP
   });
