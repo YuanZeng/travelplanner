@@ -1,6 +1,6 @@
 # One Month Rails
 
-This is the pinteresting sample application for
-[*One Month Rails*](http://onemonthrails.com)
+This is the traval plan application for
+[*TriMaxPlanner*](www.trimaxplanner)
 
-by [Mattan Griffel](http://mattangriffel.com)
+by [Max Zeng](https://www.facebook.com/yuan.zeng.750)
