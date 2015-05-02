@@ -1,6 +1,6 @@
 <%= render 'pages/home' unless user_signed_in? %>
 
-
+<!--
 <div class="row">
   <div class="col-md-4">
     <div class="mappanel">
@@ -9,6 +9,8 @@
   </div>
 
   <div class="col-md-8">
+-->
+
     <div class="pins">
       <div id="pins" class="transitions-enabled">
         <% @pins.each do |pin| %>
@@ -39,9 +41,12 @@
         <% end %>
       </div>
     </div> 
+
+    <!--
   </div>
 
 </div>
+-->
 
 
 <div class="center">

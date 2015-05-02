@@ -15,12 +15,12 @@ function initUserPage() {
         google.maps.MapTypeId.HYBRID
         ]
     }
-
   };
   var map = new google.maps.Map(mapDiv, mapOptions); 
   return map;
 }
 
+var usermarkerarray = [];
 var markersArray = [];
 
 function createUserMarkers(usermarkerarray){
