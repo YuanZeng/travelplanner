@@ -4,7 +4,7 @@ function initpinPage() {
   var mapOptions = {
     zoom: 2,
     center: latlng,
-    mapTypeId: google.maps.MapTypeId.SATELLITE,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
     scaleControl: true,
     mapTypeControl: true,
     mapTypeControlOptions:{
